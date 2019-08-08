@@ -1,8 +1,6 @@
-#
 # Package's DSC file
-#
-# Timothy Lin 2019, BSD 3-Clause License.
-#
+
+# (c) 2019 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 3-Clause License.
 
 [Defines]
   BUILD_TARGETS           = DEBUG|RELEASE|NOOPT
@@ -39,3 +37,7 @@
   PciUtilsPkg/lspci.inf
   PciUtilsPkg/setpci.inf
   PciUtilsPkg/example.inf
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS   = /wd4244 /wd4267 /wd4098 /wd4115 /wd4706 /wd4245 /wd4305 /wd4701 /wd4703
+  GCC:*_*_*_CC_FLAGS    = -Wall -W -Wno-parentheses -Wno-unused-parameter -Wno-type-limits -Wno-implicit-fallthrough -Wno-sign-compare -Wno-extra

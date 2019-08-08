@@ -1,8 +1,7 @@
-//
 // alloca() is said to be more agile than malloc() for smaller data block allocation.
-//
-// Timothy Lin 2019, BSD 3-Clause License.
-//
+// But the supported platforms are rare.
+
+// (c) 2019 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 3-Clause License.
 
 #pragma once
 

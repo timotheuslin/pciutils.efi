@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=invalid-name, line-too-long
 #
-# Timothy Lin 2019, BSD 3-Clause License.
+# (c) 2019 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 3-Clause License.
 #
 
 """
@@ -22,6 +22,7 @@ import sys
 
 DEFAULT_WORKSPACE_DIR = os.getcwd()
 DEFAULT_UDK_DIR = os.path.join(os.path.expanduser('~'), '.cache', 'pug', 'edk2')
+DEFAULT_MSVC_TAG = 'VS2012x86'
 
 # Basic global settings for all the workspace.
 # Any relative-path is relative to the current-working-dir.
@@ -30,7 +31,7 @@ WORKSPACE = {
     'output_directory'  : os.path.join('Build', 'Pug'),
     'platform_name'     : 'Pug',
     'target_arch'       : 'X64',            # 'IA32', 'X64', 'IA32 X64'
-    'tool_chain_tag'    : 'VS2012x86' if os.name == 'nt' else 'XCODE5' if sys.platform == 'darwin' else 'GCC5',
+    'tool_chain_tag'    : DEFAULT_MSVC_TAG if (os.name == 'nt') else 'XCODE5' if (sys.platform == 'darwin') else 'GCC5',
     'target'            : 'RELEASE',        # 'DEBUG', 'NOOPT', 'RELEASE', 'RELEASE DEBUG'
     'log_type'          : 'PCD',            # 'PCD', 'LIBRARY', 'FLASH', 'DEPEX', 'HASH', 'BUILD_FLAGS', 'FIXED_ADDRESS'
 }
@@ -85,7 +86,7 @@ PLATFORM = {}
 # Ref. BaseTools/Conf/target.template
 # The relative-paths are relative to entries in {$(WORKSPACE), $(PACKAGES_PATH)}
 TARGET_TXT = {
-    'path'              : WORKSPACE['conf_path'] + '/' + 'target.txt',
+    'path'              : os.path.join(WORKSPACE['conf_path'], target.txt'),
     'update'            : True,
     'TOOL_CHAIN_CONF'   : 'tools_def.txt',
     'BUILD_RULE_CONF'   : 'build_rule.txt',

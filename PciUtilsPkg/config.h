@@ -1,13 +1,10 @@
-//
-// A hardcoded config file for the UDK porting.
-//
-// Timothy Lin 2019, BSD 3-Clause License.
-//
+// A hard-coded config file for the UDK porting.
+
+// (c) 2019 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 3-Clause License.
 
 #pragma once
 
 #include <X64/machine/int_fmtio.h>
-#pragma GCC diagnostic ignored "-Wparentheses"
 
 #define PCI_IDS "pci.ids"
 #define PCI_OS_GNU

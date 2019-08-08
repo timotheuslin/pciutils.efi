@@ -1,8 +1,6 @@
-//
 // UDK's IO functions.
-//
-// Timothy Lin 2019, BSD 3-Clause License.
-//
+
+// (c) 2019 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 3-Clause License.
 
 #pragma once
 
