@@ -1,0 +1,19 @@
+#
+# Package's DEC file
+#
+# Timothy Lin 2019, BSD 3-Clause License.
+#
+
+[Defines]
+  PACKAGE_NAME      = PciUtilsPkg
+  PACKAGE_GUID      = 8f96a552-b947-11e9-a6a1-97f48e530c8c
+  PACKAGE_VERSION   = 0.1
+  DEC_SPECIFICATION = 0x00010006
+
+[Includes]
+  .
+  sys
+  pciutils/lib
+
+[LibraryClasses]
+  PciUtilsLib|pciutils/lib/config.h

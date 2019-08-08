@@ -1,0 +1,37 @@
+#
+# INF file for "lspci"
+#
+# Timothy Lin 2019, BSD 3-Clause License.
+#
+
+[Defines]
+  BASE_NAME         = lspci
+  FILE_GUID         = 3159ba54-b949-11e9-af11-5f41fc1695af
+  ENTRY_POINT       = ShellCEntryLib
+  INF_VERSION       = 0x00010006
+  MODULE_TYPE       = UEFI_APPLICATION
+  VERSION_STRING    = 0.1
+
+[Sources.x64]
+  pciutils/lspci.c
+  pciutils/ls-vpd.c
+  pciutils/ls-caps.c
+  pciutils/ls-caps-vendor.c
+  pciutils/ls-ecaps.c
+  pciutils/ls-kernel.c
+  pciutils/ls-tree.c
+  pciutils/ls-map.c
+  pciutils/common.c
+
+[Packages]
+  PciUtilsPkg/PciUtilsPkg.dec
+  StdLib/StdLib.dec
+  ShellPkg/ShellPkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  PciUtilsLib
+  BaseLib
+  LibString
+  IoLib
+  UefiLib

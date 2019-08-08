@@ -1,0 +1,45 @@
+#
+# INF file for "PCILIB"
+#
+# Timothy Lin 2019, BSD 3-Clause License.
+#
+
+[Defines]
+  BASE_NAME         = PciUtilsLib
+  FILE_GUID         = b75ab2ae-b942-11e9-93ed-1b601dc797fb
+  INF_VERSION       = 0x00010006
+  MODULE_TYPE       = DXE_DRIVER
+  LIBRARY_CLASS     = PciUtilsLib|DXE_DRIVER DXE_CORE UEFI_APPLICATION UEFI_DRIVER
+  VERSION_STRING    = 0.1
+
+[Sources]
+  pciutils/lib/access.c
+# pciutils/lib/aix-device.c
+  pciutils/lib/caps.c
+# pciutils/lib/darwin.c
+  pciutils/lib/dump.c
+# pciutils/lib/fbsd-device.c
+  pciutils/lib/filter.c
+  pciutils/lib/generic.c
+  pciutils/lib/i386-ports.c
+  pciutils/lib/init.c
+  pciutils/lib/names.c
+  pciutils/lib/names-cache.c
+  pciutils/lib/names-hash.c
+  pciutils/lib/names-hwdb.c
+  pciutils/lib/names-net.c
+  pciutils/lib/names-parse.c
+# pciutils/lib/nbsd-libpci.c
+# pciutils/lib/obsd-device.c
+  pciutils/lib/params.c
+# pciutils/lib/proc.c
+# pciutils/lib/sylixos-device.c
+# pciutils/lib/sysfs.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  StdLib/StdLib.dec
+
+[LibraryClasses]
+  IoLib
+  LibString
