@@ -86,7 +86,7 @@ PLATFORM = {}
 # Ref. BaseTools/Conf/target.template
 # The relative-paths are relative to entries in {$(WORKSPACE), $(PACKAGES_PATH)}
 TARGET_TXT = {
-    'path'              : os.path.join(WORKSPACE['conf_path'], target.txt'),
+    'path'              : os.path.join(WORKSPACE['conf_path'], 'target.txt'),
     'update'            : True,
     'TOOL_CHAIN_CONF'   : 'tools_def.txt',
     'BUILD_RULE_CONF'   : 'build_rule.txt',
