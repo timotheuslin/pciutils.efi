@@ -1,13 +1,14 @@
 pciutils.efi
 ===
-**pciutils.efi/PciUtilsPkg** is a UDK/EDK2 porting of the GNU's [pciutils](https://github.com/pciutils/pciutils) for the handy PCI tools: `lspci` and `setpci`<br>
-As a full UDK package, **PciUtilsPkg** can be built using either [the stander EDK II build process](https://edk2-docs.gitbooks.io/edk-ii-build-specification/) or [iPug](https://github.com/timotheuslin/ipug).
+**pciutils.efi/PciUtilsPkg** is a UDK/EDK2 porting of [GNU's pciutils](https://github.com/pciutils/pciutils) for the handy PCI tools: `lspci` and `setpci`<br>
+As a full UDK package, **PciUtilsPkg** can be built using either [the standard EDK II build process](https://edk2-docs.gitbooks.io/edk-ii-build-specification/) or [iPug](https://github.com/timotheuslin/ipug).
 
 
 ## Prerequisites:
 1. Python 2.7.10+ or Python 3.7.0+
 2. git 2.19.0+
 3. UDK/EDK2 code tree in following tags: edk2-stable{201811, 201903, 201905}
+4. git-cloned [GNU's pciutils](https://github.com/pciutils/pciutils) to directory PciUtilsPkg/pciutils (optional)
 
 
 ## Generic prerequisites for the UDK porting:
@@ -24,7 +25,7 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the stander ED
 
 ## Tools installation for any Debian-Based Linux:
 - `$ sudo apt update; sudo apt install nasm iasl build-essential uuid-dev`
-- optional when using iPug
+- When using iPug:
     - `pip install ipug --user`
 
 
@@ -38,7 +39,7 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the stander ED
 ## Build using iPug (Optional) :
 0. Change-directory to folder **pciutils.efi** .
 1. (Optional) Edit `CODETREE` in `project.py` to specify where to place the downloaded source files of the UDK git repo or any other additional respos.
-2. To build the code, run `python project.py`. (iPug will then handle all the rest of the tedious works with the UDK code tree steup and the build process.)
+2. To build the code, run `python project.py`. (iPug will then handle all the rest of the tedious works with the UDK code tree setup and the build process.)
 3. Browse to folder **Build/PciUtilsPkg** for the build results.
 4. Browse to folder **Build/Pug/Conf** for CONF_PATH setting files.
 5. Run `python project.py {clean, cleanall}` to clean (all) the intermediate files.
