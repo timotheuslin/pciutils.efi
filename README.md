@@ -8,7 +8,7 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the standard E
 1. Python 2.7.10+ or Python 3.7.0+
 2. git 2.19.0+
 3. UDK/EDK2 code tree in following tags: edk2-stable{201811, 201903, 201905}
-4. git-cloned [GNU's pciutils](https://github.com/pciutils/pciutils) to directory PciUtilsPkg/pciutils (optional)
+4. git-cloned [GNU's pciutils](https://github.com/pciutils/pciutils) to directory `PciUtilsPkg/pciutils` (if not using iPug)
 
 
 ## Generic prerequisites for the UDK porting:
@@ -31,23 +31,20 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the standard E
 
 ## Known issues:
 1. Only Linux (Debian & Arch) and Windows build are tested. Xcode is not covered yet.
-2. "pci.ids" database is not working yet.
-3. The double/triple/quadruple command with {'x', 'm', 'v' ...} may not work correctly.
-4. UDK with Python3 has build-dependency issue which causes slow re-building. Python2 is still recommended anyway.
+2. The double/triple/quadruple command with {'x', 'm', 'v' ...} may not work correctly.
+3. UDK with Python3 has build-dependency issue which causes slow re-building. Python2 is still recommended anyway.
+4. ~~"pci.ids" database is not working yet.~~ (Many thanks to http://www.lab-z.com/disfopen/)
 
 
 ## Build using iPug (Optional) :
-0. Change-directory to folder **pciutils.efi** .
-1. (Optional) Edit `CODETREE` in `project.py` to specify where to place the downloaded source files of the UDK git repo or any other additional respos.
-2. To build the code, run `python project.py`. (iPug will then handle all the rest of the tedious works with the UDK code tree setup and the build process.)
-3. Browse to folder **Build/PciUtilsPkg** for the build results.
-4. Browse to folder **Build/Pug/Conf** for CONF_PATH setting files.
-5. Run `python project.py {clean, cleanall}` to clean (all) the intermediate files.
-6. For the 1st time setup, following code trees are automatically git-cloned:
-    - [the UDK code tree](https://github.com/tianocore/edk2)
-    - the openssl repo (and some other CryptoPkg's submodules maybe)
-    - [the edk2-libc code tree](https://github.com/tianocore/edk2-libc) -- UDK newer than edk2-stable201905 needs this for StdLib package.
-    - [the GNU pciutils source](https://github.com/pciutils/pciutils)
+1. 
+2. Change-directory to folder **pciutils.efi** .
+3. (Optional) Edit `CODETREE` in `project.py` to specify where to place the downloaded source files of the UDK git repo or any other additional respos.
+4. To build the code, run `python project.py`. (iPug will then handle all the rest of the tedious works with the UDK code tree setup and the build process.)
+5. Browse to folder **Build/PciUtilsPkg** for the build results.
+6. Browse to folder **Build/Conf** for CONF_PATH setting files.
+7. Run `python project.py {clean, cleanall}` to clean (all) the intermediate files.
+8. The PCI list data base file, `pci.ids` must be copied alone with`lspci.efi`.
 
 
 ## Tech notes with iPug (Optional) :
@@ -57,6 +54,11 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the standard E
 2. On Windows, the default MSVC tool chain tag is vs2012x86. The following command should be run first in the command console:
     - "C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\vcvarsall.bat" x86
 3. **pciutils.efi**, as the current working directory, is assigned as the "WORKSPACE" directory. **PACKAGES_PATH a.k.a. MULTIPLE-WORKSPACE** is used here to implicitly reference other standard packages outside the current working directory tree.
+4. For the 1st time setup, following code trees are automatically git-cloned:
+    - [the UDK code tree](https://github.com/tianocore/edk2)
+    - the openssl repo (and some other CryptoPkg's submodules maybe)
+    - [the edk2-libc code tree](https://github.com/tianocore/edk2-libc) -- UDK newer than edk2-stable201905 needs this for StdLib package.
+    - [the GNU pciutils source](https://github.com/pciutils/pciutils)
 
 
 ## Have Fun!

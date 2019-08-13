@@ -29,7 +29,8 @@
 
 [LibraryClasses]
   PciUtilsLib
-  BaseLib
+  DevMedia
   LibString
   IoLib
   UefiLib
+  BaseLib
