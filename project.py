@@ -14,7 +14,9 @@ import os
 
 
 # These UDK tag source trees have been build-tested:
-DEFAULT_EDK2_TAG = 'edk2-stable201905'
+DEFAULT_EDK2_TAG = 'edk2-stable201911'
+#DEFAULT_EDK2_TAG = 'edk2-stable201908'
+#DEFAULT_EDK2_TAG = 'edk2-stable201905'
 #DEFAULT_EDK2_TAG = 'edk2-stable201903'
 #DEFAULT_EDK2_TAG = 'edk2-stable201811'
 
@@ -44,7 +46,7 @@ CODETREE = {
         'path'          : os.path.join(os.getcwd(), 'PciUtilsPkg', 'pciutils'),
         'source'        : {
             'url'       : 'https://github.com/pciutils/pciutils.git',
-            'signature' : 'v3.6.2',
+            'signature' : 'e3832c8',
         },
     }
 }
@@ -58,6 +60,6 @@ if __name__ == '__main__':
     sys.dont_write_bytecode = True      # To inhibit the creation of .pyc file
 
     PKG_DSC = 'PciUtilsPkg/PciUtilsPkg.dsc'
-    IPUG_CMD = 'ipug -p {0} {1}'.format(PKG_DSC, ' '.join(sys.argv[1:]))
+    IPUG_CMD = 'ipug {0} -p {1}'.format(' '.join(sys.argv[1:]), PKG_DSC)
     print(IPUG_CMD) 
     os.system(IPUG_CMD)
