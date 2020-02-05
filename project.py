@@ -15,8 +15,8 @@ import os
 
 # These UDK tag source trees have been build-tested:
 DEFAULT_EDK2_TAG = 'edk2-stable201911'
-#DEFAULT_EDK2_TAG = 'edk2-stable201903'
-#DEFAULT_EDK2_TAG = 'edk2-stable201811'
+#DEFAULT_EDK2_TAG = 'edk2-stable201908'
+#DEFAULT_EDK2_TAG = 'edk2-stable201905'
 
 # Change any one of them for customization.
 #DEFAULT_GCC_TAG = 'GCC5'
