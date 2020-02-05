@@ -1,3 +1,5 @@
-Build
-PciUtilsPkg/pciutils
-.vscode
+Build/
+PciUtilsPkg/pciutils/
+.vscode/
+edk2-libc/
+

@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=invalid-name, line-too-long
 #
-# (c) 2019 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 3-Clause License.
+# (c) 2019-2020 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 3-Clause License.
 #
 
 """
@@ -14,7 +14,7 @@ import os
 
 
 # These UDK tag source trees have been build-tested:
-DEFAULT_EDK2_TAG = 'edk2-stable201905'
+DEFAULT_EDK2_TAG = 'edk2-stable201911'
 #DEFAULT_EDK2_TAG = 'edk2-stable201903'
 #DEFAULT_EDK2_TAG = 'edk2-stable201811'
 
@@ -29,22 +29,23 @@ DEFAULT_EDK2_TAG = 'edk2-stable201905'
 #DEFAULT_WORKSPACE_DIR = os.environ.get('WORKSPACE', os.getcwd())
 #DEFAULT_PATH_APPEND_SIGNATURE = False
 
-
 CODETREE = {
     # edk2-libc is a new edk2 repo since edk2-stable201905. StdLib resides in this repo.
     'edk2-libc'    : {
-        'path'          : os.path.join(os.path.expanduser('~'), '.cache', 'pug', 'edk2-libc'),
+        #'path'          : os.path.join(os.path.expanduser('~'), '.cache', 'pug', 'edk2-libc'),
+        'path'          : os.path.join(os.getcwd(), 'edk2-libc'),
         'source'        : {
             'url'       : 'https://github.com/tianocore/edk2-libc.git',
             'signature' : '6168716',   # 61687168fe02ac4d933a36c9145fdd242ac424d1 @ Apr/25/2019
         },
         'multiworkspace': True,
+        'patch'         : 'git apply --directory=edk2-libc edk2-libc.patch',
     },
     'PciUtils'      : {
         'path'          : os.path.join(os.getcwd(), 'PciUtilsPkg', 'pciutils'),
         'source'        : {
             'url'       : 'https://github.com/pciutils/pciutils.git',
-            'signature' : 'v3.6.2',
+            'signature' : 'v3.6.4',
         },
     }
 }
@@ -54,10 +55,12 @@ CODETREE = {
 
 
 if __name__ == '__main__':
+    import os
     import sys
     sys.dont_write_bytecode = True      # To inhibit the creation of .pyc file
 
+    os.environ['MSVC_TAG']='VS2017'
     PKG_DSC = 'PciUtilsPkg/PciUtilsPkg.dsc'
-    IPUG_CMD = 'ipug -p {0} {1}'.format(PKG_DSC, ' '.join(sys.argv[1:]))
+    IPUG_CMD = 'python -m ipug {0} -p {1}'.format(' '.join(sys.argv[1:]), PKG_DSC)
     print(IPUG_CMD) 
     os.system(IPUG_CMD)
