@@ -21,7 +21,7 @@ DEFAULT_EDK2_TAG = 'edk2-stable201911'
 # Change any one of them for customization.
 #DEFAULT_GCC_TAG = 'GCC5'
 #DEFAULT_UDK_DIR = os.environ.get('UDK_DIR', os.path.join(os.path.expanduser('~'), '.cache', 'pug', 'edk2'))
-#DEFAULT_MSVC_TAG = os.environ.get('MSVC_TAG', 'VS2012x86')
+DEFAULT_MSVC_TAG = os.environ.get('MSVC_TAG', 'VS2017')
 #DEFAULT_EDK2_REPO = os.environ.get('EDK2_REPO', 'https://github.com/tianocore/edk2.git')
 #DEFAULT_XCODE_TAG = 'XCODE5'
 #DEFAULT_TARGET_ARCH = os.environ.get('TARGET_ARCH', 'X64')              # 'IA32', 'X64', 'IA32 X64'
@@ -39,7 +39,7 @@ CODETREE = {
             'signature' : '6168716',   # 61687168fe02ac4d933a36c9145fdd242ac424d1 @ Apr/25/2019
         },
         'multiworkspace': True,
-        'patch'         : 'git apply --directory=edk2-libc edk2-libc.patch',
+        'patch'         : 'git apply --directory=edk2-libc patch.txt',
     },
     'PciUtils'      : {
         'path'          : os.path.join(os.getcwd(), 'PciUtilsPkg', 'pciutils'),
@@ -55,12 +55,10 @@ CODETREE = {
 
 
 if __name__ == '__main__':
-    import os
     import sys
-    sys.dont_write_bytecode = True      # To inhibit the creation of .pyc file
+    import runpy
 
-    os.environ['MSVC_TAG']='VS2017'
+    sys.dont_write_bytecode = True      # To inhibit the creation of .pyc file
     PKG_DSC = 'PciUtilsPkg/PciUtilsPkg.dsc'
-    IPUG_CMD = 'python -m ipug {0} -p {1}'.format(' '.join(sys.argv[1:]), PKG_DSC)
-    print(IPUG_CMD) 
-    os.system(IPUG_CMD)
+    sys.argv += ['-p', PKG_DSC]
+    sys.exit(runpy.run_module('ipug'))
