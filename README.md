@@ -25,8 +25,8 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the standard E
 
 ## Tools installation for any Debian-Based Linux:
 - `sudo apt update; sudo apt install nasm iasl build-essential uuid-dev`
-- When using iPug:
-    - `pip install ipug --user`
+- When using the latest iPug:
+    - `pip install ipug --user --upgrade`
 
 
 ## Known issues:
@@ -40,7 +40,7 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the standard E
 1. `git-clone https://github.com/timotheuslin/pciutils.efi.git`
 2. Change-directory to folder **pciutils.efi** .
 3. (Optional) Edit `CODETREE` in `project.py` to specify where to place the downloaded source files of the UDK git repo or any other additional respos.
-4. To build the code, run `python project.py`. (iPug will then handle all the rest of the tedious works with the UDK code tree setup and the build process.)
+4. To build the code, run `python project.py setup` then `python project.py`. (iPug will then handle all the rest of the tedious works with the UDK code tree setup and the build process.)
 5. Browse to folder **Build/PciUtilsPkg** for the build results.
 6. Browse to folder **Build/Conf** for CONF_PATH setting files.
 7. Run `python project.py {clean, cleanall}` to clean (all) the intermediate files.
@@ -59,6 +59,3 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the standard E
     - the openssl repo (and some other CryptoPkg's submodules maybe)
     - [the edk2-libc code tree](https://github.com/tianocore/edk2-libc) -- UDK newer than edk2-stable201905 needs this for StdLib package.
     - [the GNU pciutils source](https://github.com/pciutils/pciutils)
-
-
-## Have Fun!
