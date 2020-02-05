@@ -39,7 +39,7 @@ CODETREE = {
             'signature' : '6168716',   # 61687168fe02ac4d933a36c9145fdd242ac424d1 @ Apr/25/2019
         },
         'multiworkspace': True,
-        'patch'         : 'git apply --directory=edk2-libc patch.txt',
+        'patch'         : 'git apply --directory=edk2-libc edk2-libc.patch',
     },
     'PciUtils'      : {
         'path'          : os.path.join(os.getcwd(), 'PciUtilsPkg', 'pciutils'),
