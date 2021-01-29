@@ -24,7 +24,7 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the standard E
 
 
 ## Tools installation for any Debian-Based Linux:
-- `sudo apt update; sudo apt install nasm iasl build-essential uuid-dev`
+- `sudo apt update && sudo apt install nasm iasl build-essential uuid-dev`
 - When using the latest iPug:
     - `pip install ipug --user --upgrade`
 
@@ -37,7 +37,7 @@ As a full UDK package, **PciUtilsPkg** can be built using either [the standard E
 
 
 ## Build using iPug (Optional) :
-1. `git-clone https://github.com/timotheuslin/pciutils.efi.git`
+1. `git clone https://github.com/timotheuslin/pciutils.efi.git`
 2. Change-directory to folder **pciutils.efi** .
 3. (Optional) Edit `CODETREE` in `project.py` to specify where to place the downloaded source files of the UDK git repo or any other additional respos.
 4. To build the code, run `python project.py setup` then `python project.py`. (iPug will then handle all the rest of the tedious works with the UDK code tree setup and the build process.)
