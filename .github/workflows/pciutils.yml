@@ -1,0 +1,30 @@
+name: pciutils
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: pciutils
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install build tools
+        run: |-
+          sudo apt-get update && apt-get install -y nasm iasl build-essential uuid-dev python3.8 python3-pip git
+          sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+          sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
+          pip install ipug --user --upgrade --no-warn-script-location
+
+      - name: setup environment
+        run: |-
+          python project.py setup
+
+      - name: building
+        run: |-
+          python project.py
