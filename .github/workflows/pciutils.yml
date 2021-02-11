@@ -21,10 +21,15 @@ jobs:
           sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
           pip install ipug --user --upgrade --no-warn-script-location
 
-      - name: setup environment
+      - name: Setup environment
         run: |-
           python project.py setup
 
-      - name: building
+      - name: Build
         run: |-
           python project.py
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: Build/**/X64/*.efi
