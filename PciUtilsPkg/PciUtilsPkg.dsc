@@ -1,6 +1,6 @@
 # Package's DSC file
 
-# (c) 2019 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 3-Clause License.
+# (c) 2019-2024 Timothy Lin <timothy.gh.lin@gmail.com>, BSD 2-Clause License.
 
 [Defines]
   BUILD_TARGETS           = DEBUG|RELEASE|NOOPT
@@ -33,6 +33,9 @@
   UefiRuntimeServicesTableLib|MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
   DevicePathLib|MdePkg/Library/UefiDevicePathLibDevicePathProtocol/UefiDevicePathLibDevicePathProtocol.inf
 
+  RegisterFilterLib|MdePkg/Library/RegisterFilterLibNull/RegisterFilterLibNull.inf
+  OrderedCollectionLib|MdePkg/Library/BaseOrderedCollectionRedBlackTreeLib/BaseOrderedCollectionRedBlackTreeLib.inf
+  
 [Components]
   PciUtilsPkg/lspci.inf
   PciUtilsPkg/setpci.inf
@@ -40,5 +43,5 @@
 
 [BuildOptions]
   MSFT:*_VS2017_*_CC_FLAGS = /wd4459 /wd4477
-  MSFT:*_*_*_CC_FLAGS   = /wd4244 /wd4267 /wd4098 /wd4115 /wd4706 /wd4245 /wd4305 /wd4701 /wd4703
-  GCC:*_*_*_CC_FLAGS    = -Wall -W -Wno-parentheses -Wno-unused-parameter -Wno-type-limits -Wno-implicit-fallthrough -Wno-sign-compare -Wno-extra
+  MSFT:*_*_*_CC_FLAGS = /wd4244 /wd4267 /wd4098 /wd4115 /wd4706 /wd4245 /wd4305 /wd4701 /wd4703
+  GCC:*_*_*_CC_FLAGS = -Wall -W -Wno-parentheses -Wno-unused-parameter -Wno-type-limits -Wno-implicit-fallthrough -Wno-sign-compare -Wno-extra

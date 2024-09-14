@@ -1,0 +1,13 @@
+diff --git a/pciutils.h b/pciutils.h
+index 020c02a..4fe46df 100644
+--- a/pciutils.h
++++ b/pciutils.h
+@@ -29,7 +29,7 @@
+ #if defined(PCI_OS_DJGPP) || (defined(PCI_OS_WINDOWS) && !(defined(__MINGW32_MAJOR_VERSION) && __MINGW32_MAJOR_VERSION >= 3))
+ #include "compat/getopt.h"
+ #else
+-#include <getopt.h>
++#include <unistd.h>
+ #endif
+ 
+ #define PCIUTILS_VERSION PCILIB_VERSION
