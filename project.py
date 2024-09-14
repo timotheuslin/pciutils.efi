@@ -34,7 +34,7 @@ CODETREE = {
             'url'       : 'https://github.com/pciutils/pciutils.git',
             'signature' : 'v3.13.0',
         },
-        'patch'         : f'git apply --directory={os.path.join('PciUtilsPkg', 'pciutils')} pciutils.getopt.patch',
+        'patch'         : f"git apply --directory={os.path.join('PciUtilsPkg', 'pciutils')} pciutils.getopt.patch",
     }
 }
 
@@ -49,4 +49,3 @@ if __name__ == '__main__':
 
     import runpy
     runpy.run_module('ipug')
-
