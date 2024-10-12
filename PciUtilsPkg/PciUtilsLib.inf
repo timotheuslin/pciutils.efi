@@ -19,7 +19,7 @@
 # pciutils/lib/fbsd-device.c
   pciutils/lib/filter.c
   pciutils/lib/generic.c
-  pciutils/lib/i386-ports.c
+# pciutils/lib/i386-ports.c
   pciutils/lib/init.c
   pciutils/lib/names.c
   pciutils/lib/names-cache.c
@@ -33,6 +33,8 @@
 # pciutils/lib/proc.c
 # pciutils/lib/sylixos-device.c
 # pciutils/lib/sysfs.c
+  pciutils/compat/getopt.c
+  uefi-ports.c
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -41,3 +43,6 @@
 [LibraryClasses]
   IoLib
   LibString
+
+[Protocols]
+  gEfiPciIoProtocolGuid
