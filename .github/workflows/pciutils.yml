@@ -19,8 +19,9 @@ jobs:
           pip install ipug --user --upgrade --no-warn-script-location
 
       - name: Setup environment
+        env:
+          GIT_CONFIG_PARAMETERS: "'advice.detachedHead=false'"
         run: |-
-          git config --global advice.detachedHead false
           python project.py setup
 
       - name: Build
