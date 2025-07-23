@@ -13,7 +13,7 @@ This is the project configuration file as well the starter script for iPug.
 import os
 
 # The tag source trees that have been build-tested:
-DEFAULT_EDK2_TAG = 'edk2-stable202408'
+DEFAULT_EDK2_TAG = 'edk2-stable202408.01'
 
 DEFAULT_MSVC_TAG = os.environ.get('MSVC_TAG', 'VS2022')
 
