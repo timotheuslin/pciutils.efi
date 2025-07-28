@@ -12,6 +12,7 @@
   .
   sys
   pciutils/lib
+  pciutils/compat
 
 [LibraryClasses]
   PciUtilsLib|pciutils/lib/config.h

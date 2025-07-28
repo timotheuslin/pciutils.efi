@@ -43,5 +43,8 @@
 
 [BuildOptions]
   MSFT:*_VS2017_*_CC_FLAGS = /wd4459 /wd4477
+# !ifdef $(HAVE_GETOPT)
+  MSFT:*_*_*_CC_FLAGS   = /D HAVE_GETOPT
+# !endif
   MSFT:*_*_*_CC_FLAGS = /wd4244 /wd4267 /wd4098 /wd4115 /wd4706 /wd4245 /wd4305 /wd4701 /wd4703
   GCC:*_*_*_CC_FLAGS = -Wall -W -Wno-parentheses -Wno-unused-parameter -Wno-type-limits -Wno-implicit-fallthrough -Wno-sign-compare -Wno-extra
